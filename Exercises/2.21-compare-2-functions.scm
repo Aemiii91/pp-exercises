@@ -12,11 +12,11 @@
         result
         (pow-h (- b 1) (* result a)))))
 
-(define func1 (derivative (lambda (x) (pow x 5))))
-(map func1 '(1.0 2.0 3.0 4.0 5.0))
+(define f (lambda (x) (pow x 5)))
+(map (derivative f) '(1.0 2.0 3.0 4.0 5.0))
 
-(define func2 (lambda (x) (* 5 (pow x 4))))
-(map func2 '(1.0 2.0 3.0 4.0 5.0))
+(define f-mark (lambda (x) (* 5 (pow x 4))))
+(map f-mark '(1.0 2.0 3.0 4.0 5.0))
 
 
 ; Write a function compare-2-functions
@@ -32,4 +32,4 @@
           (lst2 (map f2 numerical-input-list))]
         (map abs (map - lst1 lst2))))
 
-(compare-2-functions func1 func2 '(1.0 2.0 3.0 4.0 5.0))
+(compare-2-functions (derivative f) f-mark '(1.0 2.0 3.0 4.0 5.0))
